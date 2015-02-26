@@ -13,10 +13,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <sql:query var="allRows" dataSource="jdbc/sample">
+    <sql:setDataSource var="source" 
+                       url="jdbc:derby://localhost:1527/sample" 
+                       user="app" 
+                       password="app"
+                       driver="org.apache.derby.jdbc.ClientDriver"></sql:setDataSource> 
+    <sql:query var="allRows" dataSource="${source}">
             SELECT name, city, state FROM customer
     </sql:query>
-    <c:forEach var="ligneCourante" items="${allRows.rows}">
+    
         <body>
             <h1>Hello World!</h1>
 
@@ -30,13 +35,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach var="ligneCourante" items="${allRows.rows}">
                         <tr>
                             <td>${ligneCourante.name}</td>
                             <td>${ligneCourante.city}</td>
                         </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
 
         </body>
-    </c:forEach>
+    
 </html>
