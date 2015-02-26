@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <sql:setDataSource var="source" 
-                       url="jdbc:derby://localhost:1527/sample" 
+                       url="jdbc:derby://195.83.139.59:6027/sample4" 
                        user="app" 
                        password="app"
                        driver="org.apache.derby.jdbc.ClientDriver"></sql:setDataSource> 
